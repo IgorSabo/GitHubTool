@@ -32,11 +32,6 @@ public class MockConnector implements Connect{
     }
 
 
-
-
-
-
-
     public String getFileContent(File f){
         StringBuffer sb = new StringBuffer();
         String line;
