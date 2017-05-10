@@ -13,10 +13,10 @@ public class AppConfigLoader {
 
     private static Properties properties;
 
-    private boolean useCustomDisplayConfig;
-    private boolean displayJsonOutput;
-    private int defaultResultsNum;
-    private int maxThreadCount;
+    private volatile boolean useCustomDisplayConfig;
+    private volatile boolean displayJsonOutput;
+    private volatile int defaultResultsNum;
+    private volatile int maxThreadCount;
 
     public boolean isUseCustomDisplayConfig() {
         return useCustomDisplayConfig;

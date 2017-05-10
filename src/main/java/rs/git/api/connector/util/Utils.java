@@ -39,7 +39,6 @@ public class Utils {
      * Prints usage for every command
      */
     public static void printUsage(){
-        int num=0;
         GitCommand[] commands = GitCommand.values();
 
         System.out.println("******************************* Usage description ********************************");
@@ -47,40 +46,48 @@ public class Utils {
         //printing command description details
         for(GitCommand command : commands){
 
-            //title
-            if(isTextPresent(command.getCommandTitle()))
-                System.out.println(++num +") "+command.getCommandTitle());
-
-            //optional note
-            if(isTextPresent(command.getOptionalNote()))
-                System.out.println(DOUBLE_TAB_INDENT+"Note: "+command.getOptionalNote());
-
-            //format
-            if(isTextPresent(command.getCommandFormat()))
-                System.out.println(MessageFormat.format(DOUBLE_TAB_INDENT+"Format:\t"+command.getCommandFormat(), command.getParamValue()));
-
-            //param list
-            if(isTextPresent(command.getOptionalParametersDesc())){
-                System.out.println(DOUBLE_TAB_INDENT+"Params:");
-
-                if(command.getOptionalParametersDesc().contains(AppConstants.PARAMS_DESC_SEPARATOR)){
-                    //multiple params present
-                    for(String paramDesc : command.getOptionalParametersDesc().split(AppConstants.PARAMS_DESC_SEPARATOR))
-                    System.out.println(TRIPPLE_TAB_INDENT+paramDesc.trim());
-                }
-                else{
-                    //single param present
-                    System.out.println(TRIPPLE_TAB_INDENT+command.getOptionalParametersDesc());
-                }
-            }
-
-            //example
-            if(isTextPresent(command.getExample())){
-                System.out.println(DOUBLE_TAB_INDENT+"Example: "+command.getExample());
-            }
-
-            System.out.println("\n");
+            printUsagePerCommand(command);
         }
+
+        System.out.println("**********************************************************************************");
+    }
+
+
+    public static void printUsagePerCommand(GitCommand command){
+
+        //title
+        if(isTextPresent(command.getCommandTitle()))
+            System.out.println(command.getCommandTitle());
+
+        //optional note
+        if(isTextPresent(command.getOptionalNote()))
+            System.out.println(DOUBLE_TAB_INDENT+"Note: "+command.getOptionalNote());
+
+        //format
+        if(isTextPresent(command.getCommandFormat()))
+            System.out.println(MessageFormat.format(DOUBLE_TAB_INDENT+"Format:\t"+command.getCommandFormat(), command.getParamValue()));
+
+        //param list
+        if(isTextPresent(command.getOptionalParametersDesc())){
+            System.out.println(DOUBLE_TAB_INDENT+"Params:");
+
+            if(command.getOptionalParametersDesc().contains(AppConstants.PARAMS_DESC_SEPARATOR)){
+                //multiple params present
+                for(String paramDesc : command.getOptionalParametersDesc().split(AppConstants.PARAMS_DESC_SEPARATOR))
+                    System.out.println(TRIPPLE_TAB_INDENT+paramDesc.trim());
+            }
+            else{
+                //single param present
+                System.out.println(TRIPPLE_TAB_INDENT+command.getOptionalParametersDesc());
+            }
+        }
+
+        //example
+        if(isTextPresent(command.getExample())){
+            System.out.println(DOUBLE_TAB_INDENT+"Example: "+command.getExample());
+        }
+
+        System.out.println("\n");
     }
 
     /**

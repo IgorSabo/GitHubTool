@@ -8,6 +8,7 @@ import rs.git.api.connector.core.ThreadStarter;
 import rs.git.api.connector.exceptions.BadArgumentsException;
 import rs.git.api.connector.loaders.AppConfigLoader;
 import rs.git.api.connector.loaders.DisplayConfigLoader;
+import rs.git.api.connector.util.Utils;
 import rs.git.api.connector.wrappers.UrlsWrapper;
 
 /**
@@ -32,8 +33,14 @@ public class InputLineProcessor {
            ts.startThreads(wrapper);
         }
         else if(parts[0].equals(GitCommand.DESC.getParamValue())){
-            UrlsWrapper wrapper = paramProcessor.processDescParams(parts);
-            ts.startThreads(wrapper);
+
+            if(parts.length<2){
+                Utils.printUsagePerCommand(GitCommand.DESC);
+            }
+            else{
+                UrlsWrapper wrapper = paramProcessor.processDescParams(parts);
+                ts.startThreads(wrapper);
+            }
         }
         else if(parts[0].toLowerCase().equals("reinitialize_configs")){
             AppConfigLoader.getInstance().reinitializeConfig();

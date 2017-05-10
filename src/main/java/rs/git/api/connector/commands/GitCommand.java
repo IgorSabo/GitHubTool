@@ -27,7 +27,14 @@ public enum GitCommand {
          "exit",
          "Command is not case sensitive",
             null,
+            null),
+    REINITIALIZE_CONFIGS("Reinitialize configurations:",
+            "reinitialize_configs",
+            "reinitialize_configs",
+            "Run this command to reinitialize app configuration and display configuration",
+            null,
             null);
+
 
 
 

@@ -7,6 +7,7 @@ import rs.git.api.connector.loaders.AppConfigLoader;
 import rs.git.api.connector.requests.ApiDescRequest;
 import rs.git.api.connector.requests.ApiListRequest;
 import rs.git.api.connector.requests.ApiRequest;
+import rs.git.api.connector.util.Utils;
 import rs.git.api.connector.wrappers.UrlsWrapper;
 
 /**
@@ -130,13 +131,6 @@ public class ParamProcessor {
         //array to hold all passed ids
         int[] ids = new int[numOfParams-1];
 
-        if(numOfParams < 2){
-
-            //no repository id provided
-            throw new BadArgumentsException("desc command must be followed by at least one repository id");
-        }
-        else{
-
             //populate the array
             for(int i=1; i<numOfParams; i++){
 
@@ -152,7 +146,6 @@ public class ParamProcessor {
 
             }
 
-        }
 
         wrapper = generateApiUrl(new ApiDescRequest(ids));
         return wrapper;
