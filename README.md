@@ -8,7 +8,7 @@ User manual
 Generate jar file from the project (rename it to ghtool.jar if needed)<br>
 Once jar file is generated to a desired location, additional folder called config needs to be created in the same place where jar file is located, and two property files appConfig.properties and displayParametersConfig.properties, need to be copied there.<br>
 These files make our application configuration configurable.<br>
-Both property files can be found in the config folder in the root of the project.
+Both property files can be found in the config folder in the root of the project.<br>
 Once done, your structure should look like this:<br>
 
 |--config<br>
