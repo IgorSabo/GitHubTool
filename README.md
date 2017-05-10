@@ -2,7 +2,7 @@
 
 User manual
 
-This application is small console connector to GitHub api.<b>
+<b>This application is small console connector to GitHub api.</b>
 
 <b>Steps to setup:</b><br>
 Generate jar file from the project (rename it to ghtool.jar if needed)<br>
@@ -33,9 +33,10 @@ displayParametersConfig.properties file contains all information parameters that
 Application has following commands at users disposal:
 Attributes displayed in <> are optional
 
-- list <language> <-n X> This command will return X number of public repositories (and display various attributes regarding them) written in java language. Format response and displayed attributes and are configurable through earlier explained usage of property files.
+- list &lt;language&gt; &lt;-n X&gt; This command will return X number of public repositories (and display various attributes regarding them) written in java language. Format response and displayed attributes and are configurable through earlier explained usage of property files.<br>
   example: list java -n 5
-- desc <id1 id2 id3...idX> This command will return various information about X number of public repositories. Format response and displayed attributes and are configurable through earlier explained usage of property files. If a user does not provide parameters after desc command, application will display information about desc command usage.
+- desc &lt;id1 id2 id3...idX&gt; This command will return various information about X number of public repositories. Format response and displayed attributes and are configurable through earlier explained usage of property files. If a user does not provide parameters after desc command, application will display information about desc command usage.<br>
+  example desc 3140398 507775
 - exit Terminates the application
 - reinitialize_configs Command that enables us to update application configuration and display configuration by changing the values from previously mentioned property files. Application restart is not needed is reinitialize_configs command is called after files are saved.
  
