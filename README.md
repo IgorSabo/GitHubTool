@@ -2,21 +2,21 @@
 
 User manual
 
-This application is small console connector to GitHub api.
+This application is small console connector to GitHub api.<b>
 
-***** Steps to setup: *****
-Generate jar file from the project (rename it to ghtool.jar if needed)
-Once jar file is generated to a desired location, additional folder called config needs to be created in the same place where jar file is located, and two property files appConfig.properties and displayParametersConfig.properties, need to be copied there.
-These files make our application configuration configurable.
-Once done, your structure should look like this:
+<b>Steps to setup:</b><br>
+Generate jar file from the project (rename it to ghtool.jar if needed)<br>
+Once jar file is generated to a desired location, additional folder called config needs to be created in the same place where jar file is located, and two property files appConfig.properties and displayParametersConfig.properties, need to be copied there.<br>
+These files make our application configuration configurable.<br>
+Once done, your structure should look like this:<br>
 
-|--config
-|   |-- appConfig.properties
-|   |-- displayParametersConfig.properties
-|
-|--GitHubTool.jar
-
-***** Application configuration *****
+|--config<br>
+|&nbsp;&nbsp;&nbsp;&nbsp;|-- appConfig.properties<br>
+|&nbsp;&nbsp;&nbsp;&nbsp;|-- displayParametersConfig.properties<br>
+|<br>
+|--GitHubTool.jar<br>
+<br>
+<b>Application configuration:<b><br>
 appConfig.properties file contains following properties:
 
 displayJsonOutput - by setting this value to true we are choosing to view our results in json format, by setting it to false however, 
@@ -29,7 +29,7 @@ maxThreadCount - max number of threads that are available to be executed per one
 
 displayParametersConfig.properties file contains all information parameters that are available for a repository.
 
-***** Usage examples *****
+<b>Usage examples</b>
 Application has following commands at users disposal:
 Attributes displayed in <> are optional
 
