@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Gile on 5/6/2017.
+ * Utils class, used to print usage for empty command and to print response to main output
  */
 public class Utils {
 
@@ -35,7 +35,9 @@ public class Utils {
         return instance;
     }
 
-
+    /**
+     * Prints usage for every command
+     */
     public static void printUsage(){
         int num=0;
         GitCommand[] commands = GitCommand.values();
@@ -81,7 +83,11 @@ public class Utils {
         }
     }
 
-
+    /**
+     * Method used to check if text is present, that is, if it is not null or empty string
+     * @param text - property name
+     * @return - boolean result
+     */
     public static boolean isTextPresent(String text){
         if(text != null && !text.equals(""))
             return true;

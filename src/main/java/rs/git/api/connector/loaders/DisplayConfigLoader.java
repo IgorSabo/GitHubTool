@@ -1,6 +1,5 @@
 package rs.git.api.connector.loaders;
 
-import rs.git.api.connector.GitHubApiConnector;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,7 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by Gile on 5/7/2017.
+ * Singleton class used to load display configuration config from property file
  */
 public class DisplayConfigLoader {
 
@@ -475,7 +474,6 @@ public class DisplayConfigLoader {
 
         try {
             input = new FileInputStream("config/displayParametersConfig.properties");
-            //input = GitHubApiConnector.class.getClassLoader().getResourceAsStream("displayParametersConfig.properties");
             properties.load(input);
 
             showId = Boolean.parseBoolean(properties.getProperty("id"));
@@ -584,6 +582,9 @@ public class DisplayConfigLoader {
         }
     }
 
+    /**
+     * Method used to reinitialize configuration without need to restart app
+     */
     public void reinitializeConfig(){
         init();
     }

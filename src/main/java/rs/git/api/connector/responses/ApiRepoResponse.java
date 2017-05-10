@@ -2,7 +2,7 @@ package rs.git.api.connector.responses;
 
 
 /**
- * Created by Gile on 5/6/2017.
+ * Response from git api, representing one repository
  */
 public class ApiRepoResponse {
 

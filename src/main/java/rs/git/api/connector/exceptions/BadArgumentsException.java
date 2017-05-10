@@ -1,7 +1,7 @@
 package rs.git.api.connector.exceptions;
 
 /**
- * Created by Gile on 5/6/2017.
+ * Custom exception thrown when command is invalid
  */
 public class BadArgumentsException extends GitHubToolException {
 

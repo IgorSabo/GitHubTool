@@ -26,7 +26,11 @@ public class ThreadStarter {
         this.connector = connector;
     }
 
-
+    /**
+     * Start threads, one thread per url
+     * @param wrapper - UrlsWrapper object, contains array of urls and selected GitCommand type
+     * @throws InterruptedException
+     */
     public void startThreads(UrlsWrapper wrapper) throws InterruptedException {
 
 
@@ -34,7 +38,7 @@ public class ThreadStarter {
 
             if(wrapper.getCommand().equals(GitCommand.LIST)){
 
-                //start single thread
+                //start single thread, since list command only has one url per request
                 processorJob = new ApiProcessorJob(urls[0], GitCommand.LIST, connector);
                 executor = Executors.newFixedThreadPool(1);
                 submitJob();
@@ -42,13 +46,15 @@ public class ThreadStarter {
             }
             else if (wrapper.getCommand().equals(GitCommand.DESC)){
 
-                //start multiple threads, but no higher then max default number
+                //start multiple threads, but not higher then max default number
                 AppConfigLoader appConfig = AppConfigLoader.getInstance();
                 int maxThreadCount = (appConfig.getMaxThreadCount() < urls.length) ? appConfig.getMaxThreadCount() : urls.length;
 
-
+                //initiate the executor with amount of threads
                 executor = Executors.newFixedThreadPool(maxThreadCount);
                 for(int i=0; i<urls.length; i++){
+
+                    //start as many available threads
                     processorJob = new ApiProcessorJob(urls[i], GitCommand.DESC, connector);
                     submitJob();
                 }

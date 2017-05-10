@@ -9,7 +9,7 @@ import rs.git.api.connector.util.Utils;
 import java.util.Scanner;
 
 /**
- * Created by Gile on 5/5/2017.
+ * MAin class
  */
 public class GitHubApiConnector {
 
@@ -28,6 +28,7 @@ public class GitHubApiConnector {
 
         InputLineProcessor processor = new InputLineProcessor();
 
+        //run untill running variable is set to false
         while(running){
             try{
 

@@ -30,12 +30,12 @@ public class Connector implements Connect {
             HttpGet httpget = new HttpGet(url);
             httpClient = HttpClientBuilder.create().build();
 
-            System.out.println("Submiting post request...");
+            //submiting get request
             HttpResponse res = httpClient.execute(httpget);
 
             int statusCode = res.getStatusLine().getStatusCode();
 
-            System.out.println("Reading response body and converting to string...");
+            //reading response body and converting to string
             BufferedReader rd = new BufferedReader(new InputStreamReader(res.getEntity().getContent()));
 
             StringBuffer result = new StringBuffer();
@@ -44,11 +44,13 @@ public class Connector implements Connect {
                 result.append(line).append("\n");
             }
             response = result.toString();
+
+            //creating response wrapper
             wrapper = new ApiResponseWrapper(null, response, statusCode);
         }
         catch(Exception e){
-            e.printStackTrace();
-        }
+            System.out.println("Exception occured during send/receive request to github api: "+e.getMessage());        }
+
         return wrapper;
     }
 }

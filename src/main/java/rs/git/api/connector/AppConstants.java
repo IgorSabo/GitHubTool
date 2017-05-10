@@ -16,5 +16,4 @@ public class AppConstants {
     public static final String URL_PAGE_PARAM="page=";
     public static final String URL_PER_PAGE_PARAM="per_page=";
     public static final String PARAMS_DESC_SEPARATOR = "<>";
-    public static final int DEFAULT_RESULT_SIZE = 5;
 }

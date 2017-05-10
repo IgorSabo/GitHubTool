@@ -12,24 +12,22 @@ public enum GitCommand {
     LIST("Listing public repositories:",
          "list",
          "{0} <languageType> <resultsNumber> <startPage>",
-         "Elements within <> braces are optional.",
+         "Elements within <> braces are optional, command is not case sensitive",
          "languageType - desired coding language "+ AppConstants.PARAMS_DESC_SEPARATOR+" resultsNumber - number of results, default 10 "+ AppConstants.PARAMS_DESC_SEPARATOR+" startPage - start our search from the given page",
-         "java -jar ghtool.jar list pearl -n10"),
+         "list pearl -n10"),
 
     DESC("Retrieve detail for repository identified by id:",
          "desc",
          "{0} id1, id2, id3, id4 ..., idN",
-         "Applicable to multiple repositories",
+         "Applicable to multiple repositories, command is not case sensitive",
          "idN - id of a single repository",
-         "java -jar ghtool.jar desc 151, 152, 153");
-
-
-
-
-
-
-
-
+         "desc 151 152 153"),
+    EXIT("Terminate application:",
+         "exit",
+         "exit",
+         "Command is not case sensitive",
+            null,
+            null);
 
 
 

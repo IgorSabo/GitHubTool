@@ -1,7 +1,7 @@
 package rs.git.api.connector.responses;
 
 /**
- * Created by Gile on 5/6/2017.
+ * Owner dependency object for ApiRepoResponse
  */
 public class Owner {
 

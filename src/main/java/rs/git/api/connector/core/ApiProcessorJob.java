@@ -31,9 +31,9 @@ public class ApiProcessorJob extends Thread {
             ApiResponseWrapper resp = connector.sendRequest(url);
             resp.setCommand(command);
             System.out.println("Thread finished");
-            //System.out.println(Utils.toPrettyFormatArray(resp));
+
+            //write to main output
             Utils.printToMainOutput(resp);
-            //System.out.println(resp);
 
         }
         catch(Exception e){

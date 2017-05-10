@@ -6,7 +6,9 @@ import rs.git.api.connector.loaders.DisplayConfigLoader;
 import java.util.List;
 
 /**
- * Created by Gile on 5/8/2017.
+ * Class used to create a custom textual representation of a api response
+ * Depending on a values from appConfig and displayParametersConfig property files, user can choose the format of the response:
+ * Only json, custom format with all parameters, custom format with only selected parameters
  */
 public class StringCreator {
 
@@ -14,6 +16,13 @@ public class StringCreator {
     public static final String TRIPLE_TAB_INDENT="\t\t\t";
 
 
+    /**
+     * create a custom textual representation of a api response depending on a pre configured params from property files
+     *
+     * @param listResponses - array list consisting of ApiRepoResponse objects
+     * @param useCustomProfile - value used to display all response attributes or only selected ones
+     * @return custom string response
+     */
     public static String createCustomResultString(List<ApiRepoResponse> listResponses, boolean useCustomProfile){
         StringBuilder sb = new StringBuilder();
         DisplayConfigLoader config = DisplayConfigLoader.getInstance();

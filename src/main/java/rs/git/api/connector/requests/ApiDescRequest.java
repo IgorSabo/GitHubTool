@@ -3,7 +3,7 @@ package rs.git.api.connector.requests;
 import rs.git.api.connector.commands.GitCommand;
 
 /**
- * Created by Gile on 5/6/2017.
+ * Request that is generated for desc command
  */
 public class ApiDescRequest extends ApiRequest {
 

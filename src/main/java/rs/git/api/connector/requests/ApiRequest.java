@@ -3,7 +3,7 @@ package rs.git.api.connector.requests;
 import rs.git.api.connector.commands.GitCommand;
 
 /**
- * Created by Gile on 5/6/2017.
+ * Abstract request
  */
 public abstract class ApiRequest {
 
