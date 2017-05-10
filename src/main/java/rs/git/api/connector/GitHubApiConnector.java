@@ -58,10 +58,16 @@ public class GitHubApiConnector {
 
     }
 
+    /**
+     * Initialize app configuration from external property file
+     */
     private static void initializeAppConfig() {
         appConfig = AppConfigLoader.getInstance();
     }
 
+    /**
+     * Initialize display configuration from external property file
+     */
     private static void initializeDisplayConfig() {
         appDisplayConfig = DisplayConfigLoader.getInstance();
     }
