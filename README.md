@@ -16,7 +16,7 @@ Once done, your structure should look like this:<br>
 |<br>
 |--GitHubTool.jar<br>
 <br>
-<b>Application configuration:<b><br>
+<b>Application configuration:</b><br>
 appConfig.properties file contains following properties:
 
 displayJsonOutput - by setting this value to true we are choosing to view our results in json format, by setting it to false however, 
@@ -29,7 +29,7 @@ maxThreadCount - max number of threads that are available to be executed per one
 
 displayParametersConfig.properties file contains all information parameters that are available for a repository.
 
-<b>Usage examples</b>
+<b>Usage examples</b><br>
 Application has following commands at users disposal:
 Attributes displayed in <> are optional
 
