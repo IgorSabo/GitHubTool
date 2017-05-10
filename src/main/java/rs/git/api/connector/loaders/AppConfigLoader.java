@@ -2,6 +2,8 @@ package rs.git.api.connector.loaders;
 
 import rs.git.api.connector.GitHubApiConnector;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -57,7 +59,9 @@ public class AppConfigLoader {
         InputStream input = null;
 
         try {
-            input = GitHubApiConnector.class.getClassLoader().getResourceAsStream("appConfig.properties");
+
+            input = new FileInputStream("config/appConfig.properties");
+            //input = GitHubApiConnector.class.getClassLoader().getResourceAsStream("appConfig.properties");
             properties.load(input);
 
             useCustomDisplayConfig = Boolean.parseBoolean(properties.getProperty("useCustomDisplayConfig"));

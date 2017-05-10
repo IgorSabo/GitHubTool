@@ -2,6 +2,7 @@ package rs.git.api.connector.loaders;
 
 import rs.git.api.connector.GitHubApiConnector;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -473,7 +474,8 @@ public class DisplayConfigLoader {
         InputStream input = null;
 
         try {
-            input = GitHubApiConnector.class.getClassLoader().getResourceAsStream("displayParametersConfig.properties");
+            input = new FileInputStream("config/displayParametersConfig.properties");
+            //input = GitHubApiConnector.class.getClassLoader().getResourceAsStream("displayParametersConfig.properties");
             properties.load(input);
 
             showId = Boolean.parseBoolean(properties.getProperty("id"));
