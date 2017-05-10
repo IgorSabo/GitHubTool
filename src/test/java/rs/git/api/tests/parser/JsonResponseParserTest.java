@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import rs.git.api.connector.parser.JsonResponseParser;
+import rs.git.api.connector.responses.ApiErrorResponse;
 import rs.git.api.connector.responses.ApiRepoResponse;
 
 import java.io.BufferedReader;
@@ -18,6 +19,7 @@ public class JsonResponseParserTest {
 
     private static File listResponse=null;
     private static File descResponse7508411=null;
+    private static File notFound=null;
 
     @BeforeClass
     public static void initializeTestFile(){
@@ -25,6 +27,7 @@ public class JsonResponseParserTest {
         try{
             listResponse = new File("src/test/resources/", "ListResponse.json");
             descResponse7508411 = new File("src/test/resources/", "DescResponse7508411.json");
+            notFound = new File("src/test/resources/", "NotFound.json");
         }
         catch(Exception e){
             Assert.fail("Exception occured during initialization method: "+e.getMessage());
@@ -49,6 +52,11 @@ public class JsonResponseParserTest {
 
 
             List<ApiRepoResponse> list = JsonResponseParser.parseJsonArray(sb.toString());
+
+            if(list == null)
+                Assert.fail("List is null");
+
+
             if(list.size() != 10)
                 Assert.fail("List does not contain 10 elements!");
 
@@ -89,8 +97,37 @@ public class JsonResponseParserTest {
             }
             ApiRepoResponse result = JsonResponseParser.parseJsonObject(sb.toString());
 
+            if(result == null)
+                Assert.fail("Object is null");
+
             if(result.getId() != 7508411)
                 Assert.fail("Wrong id, parsing not successfull!");
+        }
+        catch(Exception e){
+            Assert.fail("Exception occured during testing: "+e.getMessage());
+        }
+    }
+
+    /**
+     * Test parsing of a not found response, applicable to other api error codes
+     * Result should be ApiErrorResponse
+     */
+    @Test
+    public void test_03(){
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(notFound));
+            StringBuffer sb = new StringBuffer();
+            String line;
+            while((line=br.readLine()) != null){
+                sb.append(line);
+            }
+
+            ApiErrorResponse error = JsonResponseParser.parserError(sb.toString());
+            if(error == null)
+                Assert.fail("Object is null");
+
+            if(!error.getMessage().equals("Not Found"))
+                Assert.fail("Message does not match!");
         }
         catch(Exception e){
             Assert.fail("Exception occured during testing: "+e.getMessage());
