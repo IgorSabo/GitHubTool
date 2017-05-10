@@ -65,6 +65,8 @@ public class ThreadStarterTest {
         try{
             ts.setConnector(mockConnector);
             ts.startThreads(wrapper);
+
+            //one thread should be started, so submitJob method should be called only once
             verify(ts).submitJob();
         }
         catch(Exception e){
@@ -88,6 +90,8 @@ public class ThreadStarterTest {
         try{
             ts.setConnector(mockConnector);
             ts.startThreads(wrapper);
+
+            //two threads should be started, so submitJob method should be called twice
             verify(ts, times(2)).submitJob();
         }
         catch(Exception e){

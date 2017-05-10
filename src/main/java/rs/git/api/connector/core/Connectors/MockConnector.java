@@ -38,7 +38,7 @@ public class MockConnector implements Connect{
             response = getFileContent(testFile);
         }
 
-        wrapper = new ApiResponseWrapper(null, response, 202);
+        wrapper = new ApiResponseWrapper(null, response, 200);
         return wrapper;
     }
 

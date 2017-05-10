@@ -45,7 +45,7 @@ public class ParamProcessorTest {
     @Test
     public void test_02(){
         String[] commands = {
-                "desc", "desc 123 123 1r3", "desc 1a3", "desc -12"
+                "desc 123 123 1r3", "desc 1a3", "desc -12"
         };
         ParamProcessor processor = new ParamProcessor();
         for(String command : commands){
